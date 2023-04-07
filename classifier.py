@@ -36,8 +36,11 @@ class BertSentClassifier(torch.nn.Module):
             elif config.option == 'flexible':
                 param.requires_grad = True
 
-        # todo -- add a classifier head
-        raise NotImplementedError
+        # classifier head
+        self.classifier_head = torch.nn.Sequential(
+            torch.nn.Dropout(p=config.hidden_dropout_prob),
+            torch.nn.Linear(config.hidden_size, config.num_labels)
+        )
 
     def forward(self, input_ids, attention_mask):
         # todo
@@ -220,7 +223,7 @@ def test(args):
         if args.use_mps:
             device = torch.device('mps')
             print ("Using MPS acceleration (needs pytorch >=1.12)")
-        elif args.use_cuda:
+        elif args.use_gpu:
             device = torch.device('cuda')
             print ("Using CUDA acceleration")
         else:
