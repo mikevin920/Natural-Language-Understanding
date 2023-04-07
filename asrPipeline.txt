@@ -1,17 +1,77 @@
-In the asrPipeline.txt file, we have collected a diverse set of transcripts that include various speech patterns such as sentences spoken at different speeds, with stuttering, code-switching, and more. These transcripts were carefully chosen to test the robustness and adaptability of our chosen Automatic Speech Recognition (ASR) system.
+I collected a diverse set of transcripts that include various speech patterns such as sentences spoken at different speeds, 
+with stuttering, code-switching, and more. These transcripts were carefully chosen to test the robustness and adaptability of 
+our chosen Automatic Speech Recognition (ASR) system.
 
-To collect the sounds, we recorded speakers with different accents, languages, and speaking styles to create a comprehensive dataset that reflects the challenges encountered in real-world speech recognition tasks. We ensured that the recordings were of high quality, with minimal background noise and distortion, to evaluate the ASR system's performance accurately.
+Below are 10 transcripts for different speaking scenarios:
 
-We used [ASR system name], a state-of-the-art ASR system, to convert the collected audio files into text. This system is known for its ability to handle a variety of speech patterns and languages effectively.
+Word example:
+Transcript: "Hippopotamus"
 
-Upon evaluating the performance of the ASR system on our dataset, we observed the following:
+Sentence example:
+Transcript: "The cat jumped over the fence."
 
-The system performed well in accurately transcribing speech spoken at a normal pace and with clear enunciation. It was also proficient in recognizing common words and phrases in both the primary language and instances of code-switching.
+Sentence read very slowly:
+Transcript: "The... weather... today... is... exceptionally... sunny."
 
-The ASR system faced challenges when dealing with speech that included stuttering, filler words, or repetitive phrases. It occasionally misinterpreted or omitted these elements in the transcriptions.
+Sentence read at normal speed, except speeding up at some words:
+Transcript: "The weather today is excep-tion-ally sunny and warm."
 
-In cases where neighboring words had blurred boundaries or when sentences were spoken very fast, the system's performance was less accurate. It sometimes merged words together or misinterpreted the intended words.
+Sentence spoken very fast:
+Transcript: "Canyoubelievethisweatherwe'rehavingtoday?"
 
-While the system showed proficiency in handling code-switching, it occasionally struggled with accurately transcribing slang, regional dialects, or less common words from the secondary language.
+Sentence containing slang or words from a second language (code-switching):
+Transcript: Hey bro, the 烤鸭 (kao ya) the other day at the restaurant tasted amazing, no cap.
 
-In conclusion, the ASR system performed well in general, but faced difficulties in specific scenarios, such as dealing with fast speech, blurred word boundaries, stuttering, and some code-switching instances. Further improvements to the system could focus on addressing these challenges to enhance its overall performance and adaptability.
+Sentence with one word spelled out by alphabet:
+Transcript: "My favorite color is B-L-U-E."
+
+Sentence where two neighboring words have blurred boundaries:
+Transcript: "I'm goingto the store to buy some groceries for tonight's dinner.
+
+Sentence spoken with some stuttering, filler words, and repetitiveness:
+Transcript: "I, um, think that, you know, we should, like, definitely go to, to the park today."
+
+
+Procedures to collect the audio files:
+
+To collect sounds for the 10 transcripts above, I used my iPhone 11’s app voice memos and recorded myself reading the 
+transcripts. Then, I uploaded the m4a file to my colab notebook to transcribe the audio recorded.
+
+ASR system:
+
+I used SpeechBrain’s ASR model trained on the LibriSpeech dataset. The model architecture consists of an encoder-decoder 
+structure with a CRDNN encoder and an RNNLM decoder. LibriSpeech is a large-scale dataset containing 1,000 hours of English 
+speech derived from audiobooks. 
+
+Sample code used in colab notebook:
+
+ !pip install speechbrain
+
+from speechbrain.pretrained import EncoderDecoderASR
+
+asr_model = EncoderDecoderASR.from_hparams(source="speechbrain/asr-crdnn-rnnlm-librispeech", 
+savedir="pretrained_models/asr-crdnn-rnnlm-librispeech")
+
+fast_sentence = asr_model.transcribe_file(/5. Sentence spoken very fast.m4a')
+print(fast_sentence)
+
+ASR System Performance:
+
+Upon evaluating the performance of the ASR system on the transcripts prepared, I observed the following:
+
+The system performed well in accurately transcribing speech spoken at a normal pace and with clear enunciation. Speech with words
+spelled out were also transcribed perfectly. Sentences spoken at a slow pace and faster pace were transcribed reasonably well, 
+transcribing certain words to similar sounding words.
+
+However, It faced challenges when dealing with sentences with code-switching and slang. Since the dataset was only trained on 
+English audio books, it is the expected behavior because slangs and other languages were not part of the training dataset.
+It also has difficulty dealing with speech that includes stuttering, filler words, or repetitive phrases. It occasionally 
+misinterpreted or omitted these elements in the transcriptions. In cases where neighboring words had blurred boundaries or when sentences were spoken very fast, the system's performance was 
+less accurate, it merges the words together.
+
+In conclusion, the SpeechBrain system performed well in general, but faced difficulties in specific scenarios where the dataset
+wasn't trained on. Further improvements could be made by fine tuning a pre-trained model using datasets specifically prepared 
+for certain tasks.
+
+
+
