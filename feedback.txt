@@ -1,0 +1,5 @@
+Each section took around 3-4 hours to complete.
+Question 3 took longer because of the training time and hyperparameter tuning time,
+and time to set up CUDA on my own PC.
+Question 3 and 4 were both pretty interesting, hope to have more lecturs regarding
+LLM and how to systematically do prompt engineering
