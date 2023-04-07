@@ -2,3 +2,4 @@ data
 sanity_check.data
 __pycache__
 frozen-10-1e-05.pt
+frozen-100-0.001.pt
