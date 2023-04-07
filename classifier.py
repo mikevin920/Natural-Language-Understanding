@@ -51,7 +51,7 @@ class BertSentClassifier(torch.nn.Module):
         
         # Need to softmax the classifier output to get the logits
         # Since loss is nll
-        output = F.softmax(classifier_output, dim= -1)
+        output = F.log_softmax(classifier_output, dim= -1)
         return output
 
 # create a custom Dataset Class to be used for the dataloader
@@ -100,7 +100,7 @@ def create_data(filename, flag='train'):
     num_labels = {}
     data = []
 
-    with open(filename, 'r') as fp:
+    with open(filename, 'r', encoding='utf-8') as fp:
         for line in fp:
             label, org_sent = line.split(' ||| ')
             sent = org_sent.lower().strip()
@@ -252,12 +252,12 @@ def test(args):
         dev_acc, dev_f1, dev_pred, dev_true, dev_sents = model_eval(dev_dataloader, model, device)
         test_acc, test_f1, test_pred, test_true, test_sents = model_eval(test_dataloader, model, device)
 
-        with open(args.dev_out, "w+") as f:
+        with open(args.dev_out, "w+", encoding="utf8") as f:
             print(f"dev acc :: {dev_acc :.3f}")
             for s, p in zip(dev_sents, dev_pred):
                 f.write(f"{p} ||| {s}\n")
 
-        with open(args.test_out, "w+") as f:
+        with open(args.test_out, "w+", encoding="utf8") as f:
             print(f"test acc :: {test_acc :.3f}")
             for s, p in zip(test_sents, test_pred):
                 f.write(f"{p} ||| {s}\n")

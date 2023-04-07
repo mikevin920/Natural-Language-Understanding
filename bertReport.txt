@@ -1,0 +1,71 @@
+Runtime: For both training method, the runtime is around 30 seconds per epoch, with the breakdown:
+    - Train: 28 seconds
+    - Eval: 27 seconds
+    - Eval2: 3 second
+
+Computation Hardware:
+    - CPU : Intel(R) Core(TM) i7-10700F CPU @ 2.90GHz
+    - GPU: NVIDIA GeForce RTX 3060, 12GB VRAM
+    - RAM : 16GB
+
+Hyperparameters of the best model:
+    - option: frozen
+    - batch size: 8
+    - learning rate: 1e-3
+    - epochs: 100
+    - hidden_dropout_prob: 0.15
+
+    - option: flexible
+    - batch size: 8
+    - learning rate: 5e-6
+    - epochs: 50
+    - hidden_dropout_prob: 0.15
+
+
+python ./classifier.py --use_gpu
+
+
+The specific command line code was:
+python classifier.py --lr 1e-3 --hidden_dropout_prob 0.15 --batch_size 8 --use_gpu --epochs 100
+
+The results of the training is shown below:
+Best Training accuracy: 0.858
+Best Dev accuracy: 0.857
+Test accuracy: N/A, as the test set label are not provided (as per the instructions on Piazza)
+Best result saved at epoch 64.
+
+For the best frozen model, I used the following hyperparameters:
+    - option: flexible
+    - batch size: 8
+    - learning rate: 5e-6
+    - epochs: 50
+    - hidden_dropout_prob: 0.15
+
+The specific command line code was:
+python classifier.py --lr 5e-6 --hidden_dropout_prob 0.15 --batch_size 8 --use_gpu --epochs 50 --option flexible
+
+The results of the training is shown below:
+Best Training accuracy: 1.000
+Best Dev accuracy: 0.963
+Test accuracy: N/A, as the test set label are not provided (as per the instructions on Piazza)
+Best result saved at epoch 14.
+
+
+
+which means the model is not overfitting.
+
+
+
+
+Tuning Procedure:
+I started with the default hyperparameters provided in the code and experimented with frozen option only as a simple
+baseline starting point. I got around 76% accuracy on the dev set, with the dev accuracy increasing at the end of 10
+default epochs. This means that the model has not yet converged, so I increased the number of epochs to 100, and
+slightly increased dropout probability to 0.15 to reduce overfitting from training for long epochs. I ended up increased
+the dev accuracy to 0.857 with the best result saved at epoch 64.
+
+I then experimented with the flexible option, and I started with the default hyperparameters provided in the code. My
+initial results were around 95% accuracy, which means the default hyperparameters are already good enough. I want to
+further increase the dev acuuracy, so I decreased the learning rate to 5e-6 and increased the number of epochs to 50. I
+also increased the dropout probability to 0.15 to reduce overfitting from training for long epochs. I ended up increased
+the dev accuracy to 0.963 with the best result saved at epoch 14.
