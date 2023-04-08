@@ -1,0 +1,29 @@
+I have chosen 3 Winograd questions and modified the prompt to request explanation, Shown below are the answers from GPT-4
+
+Prompt (original question): The cat chased the mouse because it was hungry. What was hungry?
+Prompt (question + request explanation): TThe cat chased the mouse because it was hungry. What was hungry, and why?
+GPT-4 answer: The cat was hungry. It chased the mouse because it needed food to satisfy its hunger.
+
+Prompt (original question): The town councilors refused to give the demonstrators a permit because they feared violence. Who feared violence?
+Prompt (question + request explanation): The town councilors refused to give the demonstrators a permit because they feared violence. Who feared violence, and why?
+GPT-4 answer: The town councilors feared violence. They feared violence because they were concerned that the demonstration could escalate and lead to violent incidents, putting public safety at risk.
+Winograd question: The delivery truck zoomed by the school bus because it was going so fast. What was going fast?
+
+Prompt (original question): The delivery truck zoomed by the school bus because it was going so fast. What was going fast?
+Prompt (question + request explanation): The delivery truck zoomed by the school bus because it was going so fast. What was going fast, and why?
+GPT-4 answer: The delivery truck was going fast. It was going fast likely because the driver was trying to complete deliveries quickly or was in a hurry for some other reason.
+
+
+Given the results above, GPT-4 has shown impressive rcommonsense reasoning abilities in various tasks, including answering Winograd Schema Challenge questions. 
+It can often provide adequate answers and explanations, which demonstrates its capability to understand the context and relationships within 
+a sentence.
+
+It is defintely possible to engineer some prompt formats, so that the outputs make more sense,
+since some sentence have complicated and oftern confusing context.
+One of the most useful ways to engineer prompt is to provide examples and add context to the questions.
+In the question above, I could provide the exmaple of elephant being too big to fit in the suitcase 
+given in class to help the LLM further understand what is being asked.
+
+Another way to engineer prompt is to ask for step-by-step explanations.
+This can often help the LLM walk through the sentence in more detail,
+undertanding the context and relationships more deeply.
