@@ -28,10 +28,10 @@ Best Dev accuracy: 84.5%
 Test accuracy: N/A, since test labels are not provided
 Best model saved at epoch 35.
 
-Command used to run the code for the frozen models:
-  	python classifier.py --use_gpu --lr 1e-3 --hidden_dropout_prob 0.2 --epochs 100
+Command used to run the code for the best frozen model:
+  	python classifier.py --use_gpu --lr 1e-3 --hidden_dropout_prob 0.2 --epochs 100 --batch_size 8
 
-Hyperparameters Tuning Procedure for Frozen model:
+Hyperparameters Tuning Procedure for the Frozen model:
 
 The initial model with default hyperparameters was trained for 10 epochs using a dropout rate of 0.3, 
 a learning rate of 1e-5, and a batch size of 8. However, it did not fully converge, as evidenced by the steadily 
@@ -61,9 +61,8 @@ Best Dev accuracy: 96.7%
 Test accuracy: N/A, since test labels are not provided
 Best result saved at epoch 5.
 
-Command used to run the code for the flexible models:
-python classifier.py --use_gpu --lr 5e-6 --epochs 10 --option flexible
-python classifier.py --use_gpu --option flexible --lr 1e-5 --hidden_dropout_prob 0.3 --epochs 10 --option flexible
+Command used to run the code for the best flexible model:
+python classifier.py --use_gpu --option flexible --lr 1e-5 --hidden_dropout_prob 0.3 --epochs 10 --batch_size 8 --option flexible 
 
 Hyperparameters Tuning Procedure for Flexible model:
 
