@@ -6,31 +6,39 @@ Below are 10 transcripts for different speaking scenarios:
 
 Word example:
 Transcript: "Hippopotamus"
+Transcribed text: HIPPOPOTAMUS
 
 Sentence example:
 Transcript: "The cat jumped over the fence."
+Transcribed text: THE CAT JUMPED OVER THE FENCE
 
 Sentence read very slowly:
 Transcript: "The... weather... today... is... exceptionally... sunny."
+Transcribed text: THE WEATHER TO DAY IS EXCEPTIONALLY SUNNY
 
 Sentence read at normal speed, except speeding up at some words:
 Transcript: "The weather today is excep-tion-ally sunny and warm."
+Transcribed text: THE WEATHER TO DAY IS EXCEPTIONALLY SUNNY AND WARM
 
 Sentence spoken very fast:
 Transcript: "Canyoubelievethisweatherwe'rehavingtoday?"
+Transcribed text: HE BELIEVES WHERE WE'RE HAVING TO DAY
 
 Sentence containing slang or words from a second language (code-switching):
 Transcript: Hey bro, the 烤鸭 (kao ya) the other day at the restaurant tasted amazing, no cap.
+Transcribed text: ABROAD TO KARA YADA ADAH AT THE RESTAURANT TASTED AMAZING NO CAT
 
 Sentence with one word spelled out by alphabet:
 Transcript: "My favorite color is B-L-U-E."
+Transcribed text: HIS FAVORITE COLOR IS B L U E
 
 Sentence where two neighboring words have blurred boundaries:
 Transcript: "I'm goingto the store to buy some groceries for tonight's dinner.
+Transcribed text: THE WEATHER IS PERFECT FOR A DAY AT THE BEACH DON'T YOU THINK
 
 Sentence spoken with some stuttering, filler words, and repetitiveness:
 Transcript: "I, um, think that, you know, we should, like, definitely go to, to the park today."
-
+Transcribed text: I DON'T THINK THAT YOU KNOW DON'T WE SHOULD LIKE DON'T YOU GO TO TO DEPART TO DAY
 
 Procedures to collect the audio files:
 
